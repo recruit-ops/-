@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社TUKUDAコーポレーション｜不動産会社</title>
+<meta name="description" content="株式会社TUKUDAコーポレーション。賃貸・売買の仲介から管理、資産運用のご相談まで。地域に根ざした不動産サービスを提供しています。">
+<meta property="og:title" content="株式会社TUKUDAコーポレーション">
+<meta property="og:description" content="賃貸・売買の仲介から管理、資産運用まで。地域に根ざした不動産会社です。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E3350;
+  --navy-2:#082036;
+  --teal:#0B6E8C;
+  --teal-light:#E3F1F6;
+  --amber:#F0A22E;
+  --amber-dark:#D8871A;
+  --text:#1E2733;
+  --sub:#5C6874;
+  --line:#DFE5EB;
+  --line-soft:#EDF1F4;
+  --tint:#F5F8FA;
+  --wrap:1040px;
+  --font:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+body{margin:0;background:#fff;color:var(--text);font-family:var(--font);
+  font-size:16px;line-height:1.9;font-feature-settings:"palt" 1;overflow-x:hidden}
+img,svg,iframe{max-width:100%;display:block}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+p{margin:0 0 1.2em}
+
+.wrap{width:min(100% - 40px,var(--wrap));margin-inline:auto}
+.section{padding-block:clamp(56px,7vw,92px)}
+.section.tinted{background:var(--tint)}
+.center{text-align:center}
+
+.eyebrow{display:inline-block;font-size:12.5px;font-weight:700;color:var(--teal);
+  background:var(--teal-light);padding:5px 14px;border-radius:100px;margin:0 0 16px}
+.sec-title{margin:0 0 14px;font-size:clamp(23px,3.2vw,33px);font-weight:900;
+  line-height:1.55;color:var(--navy);letter-spacing:.01em}
+.sec-lead{margin:0;color:var(--sub);font-size:15.5px;max-width:62ch}
+.center .sec-lead{margin-inline:auto}
+
+/* ボタン */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 30px;font-size:15.5px;font-weight:700;text-decoration:none;
+  border-radius:100px;border:2px solid transparent;background:var(--navy);color:#fff;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(14,51,80,.22)}
+.btn svg{width:17px;height:17px;flex:0 0 auto}
+.btn.amber{background:var(--amber);color:var(--navy-2)}
+.btn.amber:hover{background:var(--amber-dark)}
+.btn.white{background:#fff;color:var(--navy)}
+.btn.line{background:transparent;border-color:rgba(255,255,255,.55);color:#fff}
+.btn.line:hover{background:#fff;color:var(--navy);border-color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.center .btns{justify-content:center}
+
+/* ヘッダー */
+.site-head{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.head-inner{display:flex;align-items:center;height:74px;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--text);flex:0 0 auto}
+.brand-text{font-size:14px;font-weight:700;line-height:1.35;color:var(--navy)}
+.brand-text span{display:block;font-size:10.5px;font-weight:400;color:var(--sub);letter-spacing:.06em}
+.site-nav{margin-left:auto;display:flex;align-items:center;gap:26px}
+.site-nav a{font-size:14.5px;font-weight:500;color:var(--text);text-decoration:none}
+.site-nav a:hover{color:var(--teal)}
+.site-nav a[aria-current="page"]{color:var(--teal);font-weight:700}
+.site-nav a.cta{background:var(--amber);color:var(--navy-2);padding:11px 22px;
+  border-radius:100px;font-weight:700}
+.site-nav a.cta:hover{background:var(--amber-dark);color:var(--navy-2)}
+.nav-toggle{display:none;margin-left:auto;background:none;border:1px solid var(--line);
+  border-radius:8px;padding:9px 13px;font-size:13px;font-weight:700;color:var(--navy);cursor:pointer}
+@media(max-width:940px){
+  .head-inner{height:64px}
+  .nav-toggle{display:block}
+  .site-nav{position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);
+    flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 22px;display:none}
+  .site-nav.open{display:flex}
+  .site-nav a{padding:15px 0;border-bottom:1px solid var(--line-soft)}
+  .site-nav a.cta{margin-top:16px;text-align:center;border-bottom:0;justify-content:center}
+}
+
+/* ================= トップのヒーロー ================= */
+.hero{position:relative;overflow:hidden;color:#fff;isolation:isolate;
+  min-height:clamp(460px,72vh,640px);display:flex;align-items:center;
+  padding-block:clamp(56px,7vw,80px)}
+.hero-bg{position:absolute;inset:0;z-index:-2;
+  background:
+    repeating-linear-gradient(74deg,rgba(255,255,255,.05) 0 1px,transparent 1px 78px),
+    repeating-linear-gradient(-14deg,rgba(255,255,255,.045) 0 1px,transparent 1px 62px),
+    radial-gradient(120% 90% at 78% 8%,#12557A 0%,transparent 58%),
+    linear-gradient(170deg,#0B2C48 0%,#08223A 55%,#061A2C 100%)}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(6,26,44,.92) 0%,rgba(8,34,58,.78) 45%,rgba(8,34,58,.55) 100%)}
+.hero-band{position:absolute;top:0;bottom:0;z-index:-1;width:clamp(44px,6vw,80px);
+  left:max(20px,calc((100vw - var(--wrap))/2 - 6px));
+  background:linear-gradient(180deg,var(--amber),var(--amber-dark))}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
+  gap:clamp(30px,5vw,68px);align-items:center;position:relative}
+.hero-ghost{position:absolute;top:-.72em;left:-.04em;margin:0;pointer-events:none;
+  font-size:clamp(38px,6.6vw,80px);font-weight:900;letter-spacing:.22em;
+  color:rgba(255,255,255,.17);line-height:1;white-space:nowrap}
+.hero h1{position:relative;margin:0;font-size:clamp(29px,4.8vw,50px);font-weight:900;
+  line-height:1.62;letter-spacing:.13em}
+.hero h1 span{display:block}
+.hero-body p{font-size:clamp(15px,1.6vw,17px);line-height:2.15;font-weight:500;
+  color:rgba(255,255,255,.92);margin:0 0 30px}
+.hero-fade{opacity:0;transform:translateY(20px);animation:heroIn .85s cubic-bezier(.2,.7,.3,1) forwards}
+.hero-fade.d1{animation-delay:.05s}
+.hero-fade.d2{animation-delay:.2s}
+.hero-fade.d3{animation-delay:.36s}
+@keyframes heroIn{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.hero-fade{animation:none;opacity:1;transform:none}}
+@media(max-width:900px){
+  .hero{min-height:0;padding-block:clamp(64px,11vw,92px)}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-band{width:26px;left:0}
+  .hero-ghost{position:static;margin-bottom:10px;font-size:clamp(30px,8vw,46px)}
+  .hero h1{letter-spacing:.1em}
+  .hero .wrap{padding-left:16px}
+}
+
+/* ================= 下層ページの見出し ================= */
+.page-head{position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(135deg,#082036 0%,#0E3350 55%,#0B6E8C 100%);
+  padding-block:clamp(56px,8vw,92px)}
+.page-head::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+  right:-160px;top:-210px;background:radial-gradient(circle,rgba(240,162,46,.28),transparent 63%)}
+.page-head .wrap{position:relative;z-index:1}
+.page-head .en{margin:0 0 8px;font-size:12.5px;font-weight:700;letter-spacing:.2em;
+  color:var(--amber)}
+.page-head h1{margin:0;font-size:clamp(26px,4vw,40px);font-weight:900;
+  line-height:1.5;letter-spacing:.04em}
+.page-head p{margin:16px 0 0;font-size:15.5px;color:rgba(255,255,255,.84);max-width:52ch}
+
+/* メッセージ */
+.message{max-width:720px;margin-inline:auto;text-align:center}
+.message .quote{margin:0 0 10px;font-size:clamp(20px,2.8vw,28px);font-weight:900;
+  color:var(--navy);line-height:1.7}
+.message .by{margin:0 0 28px;font-size:13px;letter-spacing:.1em;color:var(--sub)}
+.message p{color:var(--text);text-align:left}
+
+/* 会社概要（2列リスト） */
+.profile{max-width:760px;margin:0 auto;border-top:1px solid var(--line)}
+.profile dl{margin:0;display:grid;grid-template-columns:180px 1fr}
+.profile dt{padding:18px 0;font-size:13.5px;color:var(--sub);border-bottom:1px solid var(--line)}
+.profile dd{margin:0;padding:18px 0;font-size:15px;border-bottom:1px solid var(--line)}
+.profile dd ul{margin:0;padding:0;list-style:none}
+.profile dd li{margin-bottom:6px}
+.profile dd li:last-child{margin-bottom:0}
+.profile dd li .label{display:inline-block;min-width:104px;color:var(--sub);font-size:13.5px}
+.profile dd li{display:flex;gap:4px;flex-wrap:wrap}
+.profile dd li .label{flex:0 0 auto}
+.profile dd .todo{color:#B0403E}
+@media(max-width:620px){
+  .profile dl{grid-template-columns:1fr}
+  .profile dt{padding:16px 0 0;border-bottom:0}
+  .profile dd{padding:4px 0 16px}
+}
+
+/* 特徴 */
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.point{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 26px;
+  transition:transform .2s ease,box-shadow .2s ease}
+.point:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(14,51,80,.10)}
+.point .ico{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;
+  background:var(--teal-light);color:var(--teal);margin-bottom:18px}
+.point .ico svg{width:24px;height:24px}
+.point h3{margin:0 0 10px;font-size:17.5px;font-weight:700;color:var(--navy)}
+.point p{margin:0;font-size:14.5px;color:var(--sub);line-height:1.85}
+@media(max-width:880px){.points{grid-template-columns:1fr;gap:18px}}
+
+/* 事業内容 */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.service{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 26px;
+  position:relative;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
+.service::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;
+  background:linear-gradient(90deg,var(--teal),var(--amber));transform:scaleX(0);
+  transform-origin:left;transition:transform .3s ease}
+.service:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(14,51,80,.10)}
+.service:hover::before{transform:scaleX(1)}
+.service .ico{color:var(--teal);margin-bottom:16px}
+.service .ico svg{width:30px;height:30px}
+.service h3{margin:0 0 10px;font-size:17.5px;font-weight:700;color:var(--navy)}
+.service p{margin:0;font-size:14.5px;color:var(--sub);line-height:1.85}
+@media(max-width:880px){.services{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.services{grid-template-columns:1fr}}
+
+/* ページ誘導カード */
+.navcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.navcard{display:block;text-decoration:none;color:inherit;background:#fff;
+  border:1px solid var(--line);border-radius:16px;padding:30px 26px;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.navcard:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(14,51,80,.10);
+  border-color:var(--teal)}
+.navcard .en{margin:0 0 6px;font-size:11.5px;font-weight:700;letter-spacing:.16em;color:var(--teal)}
+.navcard h3{margin:0 0 10px;font-size:19px;font-weight:900;color:var(--navy)}
+.navcard p{margin:0 0 16px;font-size:14.5px;color:var(--sub);line-height:1.85}
+.navcard .more{font-size:14px;font-weight:700;color:var(--teal)}
+@media(max-width:880px){.navcards{grid-template-columns:1fr}}
+
+/* 採用への誘導 */
+.leadin{position:relative;overflow:hidden;color:#fff;text-align:center;
+  background:linear-gradient(135deg,#0B6E8C 0%,#0E3350 100%);
+  padding-block:clamp(56px,8vw,92px)}
+.leadin::after{content:"";position:absolute;width:440px;height:440px;border-radius:50%;
+  right:-160px;bottom:-220px;background:radial-gradient(circle,rgba(240,162,46,.3),transparent 63%)}
+.leadin .wrap{position:relative;z-index:1}
+.leadin .copy{margin:0 0 18px;font-size:clamp(21px,3.4vw,34px);font-weight:900;line-height:1.6}
+.leadin .copy em{font-style:normal;color:var(--amber)}
+.leadin p.sub{margin:0 auto 30px;max-width:48ch;font-size:15.5px;color:rgba(255,255,255,.86)}
+
+/* 一緒に働きたい人 */
+.wishes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.wish{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 26px;
+  display:flex;gap:18px;align-items:flex-start;transition:transform .2s ease,box-shadow .2s ease}
+.wish:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(14,51,80,.10)}
+.wish .check{flex:0 0 auto;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+  background:var(--amber);color:#fff}
+.wish .check svg{width:22px;height:22px}
+.wish h4{margin:0 0 9px;font-size:17px;font-weight:700;color:var(--navy);line-height:1.6}
+.wish p{margin:0;font-size:14.5px;color:var(--sub);line-height:1.85}
+@media(max-width:820px){.wishes{grid-template-columns:1fr}}
+
+/* 働く環境 */
+.env{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.env article{background:#fff;border-radius:16px;padding:28px 24px;border:1px solid var(--line)}
+.env .num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;
+  background:var(--navy);color:#fff;font-size:14px;font-weight:900;margin-bottom:14px}
+.env h4{margin:0 0 9px;font-size:16px;font-weight:700;color:var(--navy);line-height:1.6}
+.env p{margin:0;font-size:14px;color:var(--sub);line-height:1.85}
+@media(max-width:900px){.env{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.env{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{max-width:800px;margin-inline:auto}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:14px;
+  transition:box-shadow .2s ease}
+.faq details[open]{box-shadow:0 10px 24px rgba(14,51,80,.08)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 54px 20px 22px;position:relative;
+  font-size:16px;font-weight:700;color:var(--navy)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"＋";position:absolute;right:22px;top:19px;color:var(--amber);
+  font-size:19px;font-weight:700}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:0;padding:0 22px 22px;font-size:14.5px;color:var(--sub)}
+
+/* 応募・問い合わせ */
+.entry{border-radius:20px;padding:clamp(30px,4.5vw,52px);color:#fff;
+  background:linear-gradient(135deg,#0E3350,#082036);
+  display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+.entry h3{margin:0 0 14px;font-size:clamp(20px,2.6vw,26px);font-weight:900;line-height:1.55}
+.entry p{color:rgba(255,255,255,.82);font-size:14.5px;margin:0}
+.entry .tel{display:inline-block;font-size:clamp(29px,3.6vw,36px);font-weight:900;color:#fff;
+  text-decoration:none;letter-spacing:.02em;line-height:1.3}
+.entry .telnote{font-size:13px;color:rgba(255,255,255,.7);margin:6px 0 12px}
+.entry .mailaddr{margin:0 0 22px;font-size:15px;font-weight:500;word-break:break-all}
+.entry .mailaddr a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.45)}
+.entry .mailaddr a:hover{border-bottom-color:#fff}
+@media(max-width:820px){.entry{grid-template-columns:1fr;gap:26px}}
+
+/* アクセス */
+.access{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,48px);align-items:start}
+.access iframe{width:100%;height:340px;border:1px solid var(--line);border-radius:16px}
+.access dl{margin:0;display:grid;grid-template-columns:96px 1fr}
+.access dt{font-size:13.5px;color:var(--sub);padding:14px 0;border-bottom:1px solid var(--line-soft)}
+.access dd{margin:0;font-size:15px;padding:14px 0;border-bottom:1px solid var(--line-soft)}
+@media(max-width:820px){.access{grid-template-columns:1fr}}
+
+/* フッター */
+.site-foot{background:var(--navy-2);color:rgba(255,255,255,.72);padding:52px 0 30px}
+.foot-grid{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start}
+.foot-name{margin:0 0 10px;font-size:17px;font-weight:700;color:#fff}
+.site-foot address{font-style:normal;font-size:14px;line-height:1.95}
+.site-foot address a{color:#fff}
+.foot-nav{display:flex;flex-wrap:wrap;gap:8px 24px}
+.foot-nav a{font-size:14px;color:rgba(255,255,255,.75);text-decoration:none}
+.foot-nav a:hover{color:var(--amber)}
+.copy{margin:38px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);font-size:12px}
+
+/* スクロール表示 */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .point:hover,.service:hover,.btn:hover,.navcard:hover,.wish:hover{transform:none}
+}
+
+/* スマホ固定CTA */
+.sticky{display:none}
+@media(max-width:720px){
+  .sticky{display:grid;grid-template-columns:1fr 1fr;position:fixed;inset:auto 0 0 0;z-index:70;
+    box-shadow:0 -4px 18px rgba(0,0,0,.14)}
+  .sticky a{text-align:center;padding:16px 8px;font-size:14.5px;font-weight:700;
+    text-decoration:none;background:var(--navy);color:#fff}
+  .sticky a.amber{background:var(--amber);color:var(--navy-2)}
+  body{padding-bottom:58px}
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="#home" data-page="home">
+      <span class="brand-text">株式会社TUKUDAコーポレーション<span>TUKUDA CORPORATION</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">メニュー</button>
+    <nav class="site-nav" id="siteNav" aria-label="メインナビゲーション">
+      <a href="#home" data-page="home">Home</a>
+      <a href="#about" data-page="about">About us</a>
+      <a href="#service" data-page="service">Service</a>
+      <a href="#recruit" data-page="recruit" class="cta">Recruit</a>
+      <a href="#contact" data-page="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="page" id="page-home" hidden>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="images/hero.jpg" alt="" onerror="this.remove()">
+    </div>
+    <div class="hero-band" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-ghost hero-fade d1" aria-hidden="true">TUKUDA</p>
+        <h1 class="hero-fade d2"><span>住まいと資産を、</span><span>地域とともにささえる。</span></h1>
+      </div>
+      <div class="hero-body hero-fade d3">
+        <p>株式会社TUKUDAコーポレーションは、賃貸・売買の仲介から、管理、資産運用のご相談まで扱う不動産会社です。お部屋をお探しの方にも、物件をお持ちのオーナー様にも、ひとつの窓口でお応えしています。</p>
+        <div class="btns">
+          <a class="btn white" href="#service" data-page="service">事業内容を見る</a>
+          <a class="btn amber" href="#recruit" data-page="recruit">採用情報 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap center" style="margin-bottom:44px">
+      <p class="eyebrow">私たちについて</p>
+      <h2 class="sec-title">その地域を、いちばんよく知る会社でありたい。</h2>
+      <p class="sec-lead">地元の不動産業者とのつながりを大切にしているため、日々多くの物件情報が集まります。「初めてで何を聞けばよいか分からない」「審査が通るか不安」といったご相談を、経験のあるスタッフが一つずつ受け止めています。</p>
+    </div>
+    <div class="wrap">
+      <div class="points">
+        <article class="point reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <h3>地域密着で情報が集まる</h3>
+          <p>地元業者と情報を共有しているため、ポータルサイトに出る前の物件に出会えることもあります。</p>
+        </article>
+        <article class="point reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z"/></svg></span>
+          <h3>ひとつの窓口で完結</h3>
+          <p>借りる・買う・貸す・売る・守る。住まいと資産にまつわるご相談を、担当を分けずにお受けします。</p>
+        </article>
+        <article class="point reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3.5"/><path d="M22 20v-2a4 4 0 0 0-3-3.9M16 3.6a4 4 0 0 1 0 6.8"/></svg></span>
+          <h3>相談しやすい距離感</h3>
+          <p>担当がお客様の事情を把握したまま最後まで対応します。引き継ぎで話が振り出しに戻りません。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="leadin">
+    <div class="wrap">
+      <p class="copy">お客様と向き合う時間は、<br><em>支える人がいる</em>から生まれる。</p>
+      <p class="sub">スタッフが相談に集中できるのは、書類や情報を整えてくれる人の存在があるからです。いま、その役割を担っていただく方を募集しています。</p>
+      <div class="btns">
+        <a class="btn amber" href="#recruit" data-page="recruit">採用情報を見る <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tinted">
+    <div class="wrap">
+      <div class="navcards">
+        <a class="navcard reveal" href="#about" data-page="about">
+          <p class="en">ABOUT US</p>
+          <h3>会社について</h3>
+          <p>私たちの考え方と、会社概要・拠点一覧を掲載しています。</p>
+          <span class="more">詳しく見る →</span>
+        </a>
+        <a class="navcard reveal" href="#service" data-page="service">
+          <p class="en">SERVICE</p>
+          <h3>事業内容</h3>
+          <p>賃貸・売買・管理・資産運用など、取り扱う業務をご紹介します。</p>
+          <span class="more">詳しく見る →</span>
+        </a>
+        <a class="navcard reveal" href="#contact" data-page="contact">
+          <p class="en">CONTACT</p>
+          <h3>お問い合わせ</h3>
+          <p>ご相談の受付先と、本社へのアクセスをご案内しています。</p>
+          <span class="more">詳しく見る →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div class="page" id="page-about" hidden>
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="en">ABOUT US</p>
+      <h1>会社について</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="message">
+        <p class="quote">その地域を、いちばんよく知る会社でありたい。</p>
+        <p class="by">株式会社TUKUDAコーポレーション</p>
+        <p>不動産は、その土地に住む人や、長く商いを続けてきた人のほうが詳しいことがあります。私たちは地元の不動産業者とのつながりを大切にし、日々集まる情報をお客様のご相談に結びつけています。</p>
+        <p>「初めてで何を聞けばよいか分からない」「審査が通るか不安」「初期費用を交渉してほしい」。そうしたご相談を、経験のあるスタッフが一つずつ受け止めます。入居のご希望時期がまだ先の方、エリア選びから相談したい方も歓迎しています。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tinted">
+    <div class="wrap center" style="margin-bottom:40px">
+      <p class="eyebrow">会社概要</p>
+      <h2 class="sec-title">会社概要</h2>
+    </div>
+    <div class="wrap">
+      <div class="profile">
+        <dl>
+          <dt>会社名</dt>
+          <dd>株式会社TUKUDAコーポレーション</dd>
+          <dt>代表取締役</dt>
+          <dd>中村　篤史</dd>
+          <dt>所在地</dt>
+          <dd>
+            <ul>
+              <li><span class="label">埼玉（本社）</span>〒330-0854　埼玉県さいたま市大宮区桜木町4丁目138</li>
+              <li><span class="label">北海道</span>〒060-0001　北海道札幌市中央区北一条西3-3</li>
+              <li><span class="label">宮城</span>〒983-0852　宮城県仙台市宮城野区榴岡4丁目7番37号</li>
+              <li><span class="label">福島</span>〒963-8004　福島県郡山市中町11-3</li>
+              <li><span class="label">千葉</span>〒260-0045　千葉県千葉市中央区弁天1-15-3</li>
+              <li><span class="label">東京</span>〒103-0028　東京都中央区八重洲1-4-16</li>
+              <li><span class="label">神奈川</span>〒231-0015　神奈川県横浜市中区尾上町3-35</li>
+              <li><span class="label">新潟</span>〒950-0901　新潟県新潟市中央区弁天2丁目1-1</li>
+              <li><span class="label">静岡</span>〒420-0857　静岡県静岡市葵区御幸町3-21</li>
+              <li><span class="label">愛知</span>〒450-0002　愛知県名古屋市中村区名駅4-17-3</li>
+              <li><span class="label">京都</span>〒600-8491　京都府京都市下京区鶏鉾町493</li>
+              <li><span class="label">大阪</span>〒542-0081　大阪府大阪市中央区南船場2-3-6</li>
+              <li><span class="label">兵庫</span>〒653-0042　兵庫県神戸市長田区二葉町2丁目5-10</li>
+              <li><span class="label">広島</span>〒730-0011　広島県広島市中区基町11-10</li>
+              <li><span class="label">福岡</span>〒810-0041　福岡県福岡市中央区大名1丁目3-32</li>
+            </ul>
+          </dd>
+          <dt>電話番号</dt>
+          <dd><a href="tel:0365554821">03-6555-4821</a></dd>
+          <dt>営業時間</dt>
+          <dd>10:00〜18:00</dd>
+          <dt>事業内容</dt>
+          <dd>
+            <ul>
+              <li>不動産仲介</li>
+              <li>土地・建物売買</li>
+              <li>賃貸斡旋・管理</li>
+              <li>資産運用コンサルティング</li>
+              <li>テナント仲介</li>
+              <li>損害保険代理業</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="leadin">
+    <div class="wrap">
+      <p class="copy">お客様と向き合う時間は、<br><em>支える人がいる</em>から生まれる。</p>
+      <p class="sub">スタッフが相談に集中できるのは、書類や情報を整えてくれる人の存在があるからです。いま、その役割を担っていただく方を募集しています。</p>
+      <div class="btns">
+        <a class="btn amber" href="#recruit" data-page="recruit">採用情報を見る <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div class="page" id="page-service" hidden>
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="en">SERVICE</p>
+      <h1>事業内容</h1>
+      <p>借りる・買う・貸す・売る・守る。不動産に関するご相談を、一つの窓口で受けられる体制を整えています。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="services">
+        <article class="service reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/></svg></span>
+          <h3>賃貸仲介</h3>
+          <p>お部屋探しのご相談。条件に合う物件を幅広くご提案し、初期費用・賃料の交渉も承ります。</p>
+        </article>
+        <article class="service reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 4l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5Z"/><path d="m9 13 2 2 4-4"/></svg></span>
+          <h3>売買仲介</h3>
+          <p>マンション・戸建て・土地の売買。購入時の資金計画から、売却時の無料査定・販売活動まで対応します。</p>
+        </article>
+        <article class="service reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg></span>
+          <h3>賃貸管理</h3>
+          <p>オーナー様に代わり、入居者募集から契約、入居後の対応まで。空室期間を短くする運営をご提案します。</p>
+        </article>
+        <article class="service reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 20V11M11 20V6M16 20v-6M21 20V9"/></svg></span>
+          <h3>資産運用コンサルティング</h3>
+          <p>収益物件の取得・運用・売却まで。所有不動産の収支を整理し、次の一手を数字とあわせてご提案します。</p>
+        </article>
+        <article class="service reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3>損害保険代理</h3>
+          <p>火災保険をはじめとした各種損害保険を取り扱い。住まいと資産にあわせた補償内容をご案内します。</p>
+        </article>
+        <article class="service reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-1.4-4.2A1 1 0 0 0 18.6 4H5.4a1 1 0 0 0-1 .8L3 9Z"/><path d="M5 9v11h14V9"/><path d="M10 20v-6h4v6"/></svg></span>
+          <h3>テナント・店舗仲介</h3>
+          <p>事業用物件の仲介。出店計画や業種にあわせて、店舗・事務所物件をご紹介します。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="leadin">
+    <div class="wrap">
+      <p class="copy">お客様と向き合う時間は、<br><em>支える人がいる</em>から生まれる。</p>
+      <p class="sub">スタッフが相談に集中できるのは、書類や情報を整えてくれる人の存在があるからです。いま、その役割を担っていただく方を募集しています。</p>
+      <div class="btns">
+        <a class="btn amber" href="#recruit" data-page="recruit">採用情報を見る <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div class="page" id="page-recruit" hidden>
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="en">RECRUIT</p>
+      <h1>採用情報</h1>
+      <p>お客様と向き合う時間は、支える人がいるから生まれます。いま、一緒に働いてくださる方を募集しています。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap center" style="margin-bottom:44px">
+      <h2 class="sec-title">こんな方と一緒に働きたいと思っています。</h2>
+    </div>
+    <div class="wrap">
+      <div class="wishes">
+        <article class="wish reveal">
+          <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span>
+          <div>
+            <h4>人の話を、最後まで聞ける方</h4>
+            <p>お客様は不安を抱えて来店されることが多い仕事です。急がずに話を受け止められる方だと、安心してお任せできます。</p>
+          </div>
+        </article>
+        <article class="wish reveal">
+          <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span>
+          <div>
+            <h4>細かい確認を、面倒がらない方</h4>
+            <p>契約書類は金額や日付のひと文字が大切になります。もう一度見直す習慣がある方に向いている仕事です。</p>
+          </div>
+        </article>
+        <article class="wish reveal">
+          <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span>
+          <div>
+            <h4>分からないことを、その場で聞ける方</h4>
+            <p>知識は後からで構いません。ひとりで抱え込まずに確認できる方のほうが、結果的に早く仕事に慣れていきます。</p>
+          </div>
+        </article>
+        <article class="wish reveal">
+          <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></span>
+          <div>
+            <h4>気づいたことを、口に出せる方</h4>
+            <p>少人数の会社です。働くなかで見えた改善点が、そのまま仕事の進め方に反映されていきます。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tinted">
+    <div class="wrap center" style="margin-bottom:40px">
+      <p class="eyebrow">働く環境</p>
+      <h2 class="sec-title">はじめての業界でも、続けられる場所に。</h2>
+    </div>
+    <div class="wrap">
+      <div class="env">
+        <article class="reveal"><span class="num">1</span>
+          <h4>業務の全体像が見えます</h4>
+          <p>少人数のため、書類の作成から契約後の手続きまで一連の流れに関わります。決まった作業だけを繰り返す仕事ではありません。</p>
+        </article>
+        <article class="reveal"><span class="num">2</span>
+          <h4>資格取得を支援します</h4>
+          <p>宅地建物取引士など、業務に関わる資格の取得を会社が支援します。未経験から取得を目指すこともできます。</p>
+        </article>
+        <article class="reveal"><span class="num">3</span>
+          <h4>相談しやすい距離感</h4>
+          <p>分からないことをその場で聞ける環境です。ひとりで抱え込まずに進められます。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap center" style="margin-bottom:40px">
+      <p class="eyebrow">よくあるご質問</p>
+      <h2 class="sec-title">応募の前に、よくいただく質問</h2>
+    </div>
+    <div class="wrap">
+      <div class="faq">
+        <details>
+          <summary>不動産の経験がなくても応募できますか。</summary>
+          <p>できます。他業界から入社したスタッフが在籍しています。物件情報の扱い方や契約書類の流れは、実務を通して覚えていただきます。</p>
+        </details>
+        <details>
+          <summary>宅地建物取引士の資格は必要ですか。</summary>
+          <p>必須ではありません。お持ちでなくても問題なくご応募いただけます。取得を目指したい方には、会社が費用面を含めて支援します。</p>
+        </details>
+        <details>
+          <summary>まずは話だけ聞くこともできますか。</summary>
+          <p>可能です。応募を決める前の情報収集としてのご連絡も歓迎しています。その旨をお伝えいただければ、面接ではなくカジュアルにお話しします。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tinted">
+    <div class="wrap">
+      <div class="entry">
+        <div>
+          <h3>ご応募・お問い合わせ</h3>
+          <p>応募でも、ご質問だけでも構いません。「求人を見た」とお伝えください。受付は営業時間内（10:00〜18:00）となります。</p>
+        </div>
+        <div>
+          <a class="tel" href="tel:0365554821">03-6555-4821</a>
+          <p class="telnote">採用担当あて／10:00〜18:00</p>
+          <p class="mailaddr"><a href="mailto:recruit.info@tukuda-corporation.com">recruit.info@tukuda-corporation.com</a></p>
+          <div class="btns">
+            <a class="btn amber" href="mailto:recruit.info@tukuda-corporation.com?subject=%E6%8E%A1%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E3%81%8A%E5%95%8F%E5%90%88%E3%81%9B">メールで応募する</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div class="page" id="page-contact" hidden>
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="en">CONTACT</p>
+      <h1>お問い合わせ</h1>
+      <p>ご相談・ご質問、採用へのご応募はこちらから承ります。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="entry">
+        <div>
+          <h3>ご応募・お問い合わせ</h3>
+          <p>応募でも、ご質問だけでも構いません。「求人を見た」とお伝えください。受付は営業時間内（10:00〜18:00）となります。</p>
+        </div>
+        <div>
+          <a class="tel" href="tel:0365554821">03-6555-4821</a>
+          <p class="telnote">採用担当あて／10:00〜18:00</p>
+          <p class="mailaddr"><a href="mailto:recruit.info@tukuda-corporation.com">recruit.info@tukuda-corporation.com</a></p>
+          <div class="btns">
+            <a class="btn amber" href="mailto:recruit.info@tukuda-corporation.com?subject=%E6%8E%A1%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E3%81%8A%E5%95%8F%E5%90%88%E3%81%9B">メールで応募する</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tinted">
+    <div class="wrap center" style="margin-bottom:40px">
+      <p class="eyebrow">アクセス</p>
+      <h2 class="sec-title">本社へのアクセス</h2>
+    </div>
+    <div class="wrap">
+      <div class="access">
+        <iframe
+          title="株式会社TUKUDAコーポレーションの地図"
+          src="https://maps.google.com/maps?q=%E5%9F%BC%E7%8E%89%E7%9C%8C%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE%E5%B8%82%E5%A4%A7%E5%AE%AE%E5%8C%BA%E6%A1%9C%E6%9C%A8%E7%94%BA4%E4%B8%81%E7%9B%AE138&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+          <dl>
+            <dt>所在地</dt><dd>〒330-0854　埼玉県さいたま市大宮区桜木町4丁目138</dd>
+            <dt>最寄駅</dt><dd>JR大宮駅 西口より徒歩約10分</dd>
+            <dt>電話</dt><dd><a href="tel:0365554821">03-6555-4821</a></dd>
+            <dt>営業時間</dt><dd>10:00〜18:00</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-name">株式会社TUKUDAコーポレーション</p>
+        <address>
+          〒330-0854　埼玉県さいたま市大宮区桜木町4丁目138<br>
+          TEL <a href="tel:0365554821">03-6555-4821</a>／10:00〜18:00<br>
+          採用に関するお問い合わせ <a href="mailto:recruit.info@tukuda-corporation.com">recruit.info@tukuda-corporation.com</a>
+        </address>
+      </div>
+      <nav class="foot-nav" aria-label="フッターナビゲーション">
+        <a href="#home" data-page="home">Home</a>
+        <a href="#about" data-page="about">About us</a>
+        <a href="#service" data-page="service">Service</a>
+        <a href="#recruit" data-page="recruit">Recruit</a>
+        <a href="#contact" data-page="contact">Contact</a>
+      </nav>
+    </div>
+    <p class="copy">&copy; 2026 TUKUDA CORPORATION Co., Ltd.</p>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a href="tel:0365554821">電話する</a>
+  <a class="amber" href="#recruit" data-page="recruit">採用情報</a>
+</div>
+
+<script>
+(function(){
+  var keys = ['home','about','service','recruit','contact'];
+  function show(key){
+    if(keys.indexOf(key) < 0) key = 'home';
+    keys.forEach(function(k){
+      var el = document.getElementById('page-' + k);
+      if(el) el.hidden = (k !== key);
+    });
+    document.querySelectorAll('.site-nav a').forEach(function(a){
+      if(a.dataset.page === key) a.setAttribute('aria-current','page');
+      else a.removeAttribute('aria-current');
+    });
+    window.scrollTo(0,0);
+    document.querySelectorAll('#page-' + key + ' .reveal').forEach(function(el){
+      el.classList.add('in');
+    });
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[data-page]');
+    if(!a) return;
+    e.preventDefault();
+    location.hash = a.dataset.page;
+  });
+  window.addEventListener('hashchange', function(){
+    show(location.hash.replace('#',''));
+  });
+  show(location.hash.replace('#','') || 'home');
+
+  var btn = document.getElementById('navToggle');
+  var nav = document.getElementById('siteNav');
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? '閉じる' : 'メニュー';
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+      btn.textContent = 'メニュー';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
